@@ -146,6 +146,9 @@ rateSkill = 50
 rateLoot = 3
 rateMagic = 25
 rateSpawn = 1
+rateHealthRegen = 1
+rateManaRegen = 1
+rateSpellCooldown = 1
 
 -- Monster rates
 rateMonsterHealth = 1.0

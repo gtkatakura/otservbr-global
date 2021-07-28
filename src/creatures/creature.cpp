@@ -793,6 +793,11 @@ void Creature::changeHealth(int32_t healthChange, bool sendHealthChange/* = true
 	}
 }
 
+void Creature::regenHealth(int32_t healthRegen, bool sendHealthRegen/* = true*/)
+{
+	changeHealth(healthRegen, sendHealthRegen);
+}
+
 void Creature::changeMana(int32_t manaChange)
 {
 	if (manaChange > 0) {
@@ -800,6 +805,11 @@ void Creature::changeMana(int32_t manaChange)
 	} else {
 		mana = std::max<int32_t>(0, mana + manaChange);
 	}
+}
+
+void Creature::regenMana(int32_t manaRegen)
+{
+	changeMana(manaRegen);
 }
 
 void Creature::gainHealth(Creature* healer, int32_t healthGain)

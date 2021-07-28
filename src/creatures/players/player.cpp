@@ -4144,6 +4144,11 @@ void Player::changeHealth(int32_t healthChange, bool sendHealthChange/* = true*/
 	sendStats();
 }
 
+void Player::regenHealth(int32_t healthRegen, bool sendHealthRegen/* = true*/)
+{
+	changeHealth(healthRegen * g_config.getNumber(ConfigManager::RATE_HEALTH_REGEN), sendHealthRegen);
+}
+
 void Player::changeMana(int32_t manaChange)
 {
 	if (!hasFlag(PlayerFlag_HasInfiniteMana)) {
@@ -4151,6 +4156,11 @@ void Player::changeMana(int32_t manaChange)
 	}
 	g_game.addPlayerMana(this);
 	sendStats();
+}
+
+void Player::regenMana(int32_t manaRegen)
+{
+	changeMana(manaRegen * g_config.getNumber(ConfigManager::RATE_MANA_REGEN));
 }
 
 void Player::changeSoul(int32_t soulChange)

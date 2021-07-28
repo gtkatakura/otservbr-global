@@ -234,8 +234,8 @@ void BedItem::regeneratePlayer(Player* player) const
 			regen = sleptTime / 30;
 		}
 
-		player->changeHealth(regen, false);
-		player->changeMana(regen);
+		player->regenHealth(regen, false);
+		player->regenMana(regen);
 	}
 
 	const int32_t soulRegen = sleptTime / (60 * 15);

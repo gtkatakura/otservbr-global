@@ -829,9 +829,9 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 
 			int32_t realHealthGain = creature->getHealth();
 			if (creature->getZone() == ZONE_PROTECTION && PlayerdailyStreak >= DAILY_REWARD_DOUBLE_HP_REGENERATION) {
-				creature->changeHealth(healthGain * 2); // Double regen from daily reward
+				creature->regenHealth(healthGain * 2); // Double regen from daily reward
 			} else {
-				creature->changeHealth(healthGain);
+				creature->regenHealth(healthGain);
 			}
 			realHealthGain = creature->getHealth() - realHealthGain;
 
@@ -865,9 +865,9 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 		if (internalManaTicks >= manaTicks) {
 			internalManaTicks = 0;
 			if (creature->getZone() == ZONE_PROTECTION && PlayerdailyStreak >= DAILY_REWARD_DOUBLE_MP_REGENERATION) {
-				creature->changeMana(manaGain * 2); // Double regen from daily reward
+				creature->regenMana(manaGain * 2); // Double regen from daily reward
 			} else {
-				creature->changeMana(manaGain);
+				creature->regenMana(manaGain);
 			}
 		}
 	}

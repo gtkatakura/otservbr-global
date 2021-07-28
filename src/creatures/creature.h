@@ -389,6 +389,9 @@ class Creature : virtual public Thing
 		virtual void changeHealth(int32_t healthChange, bool sendHealthChange = true);
 		virtual void changeMana(int32_t manaChange);
 
+		virtual void regenHealth(int32_t healthRegen, bool sendHealthRegen = true);
+		virtual void regenMana(int32_t manaRegen);
+
 		void gainHealth(Creature* attacker, int32_t healthGain);
 		virtual void drainHealth(Creature* attacker, int32_t damage);
 		virtual void drainMana(Creature* attacker, int32_t manaLoss);

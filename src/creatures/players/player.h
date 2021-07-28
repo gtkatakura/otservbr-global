@@ -846,6 +846,9 @@ class Player final : public Creature, public Cylinder
 		void changeMana(int32_t manaChange) override;
 		void changeSoul(int32_t soulChange);
 
+		void regenHealth(int32_t healthRegen, bool sendHealthRegen = true) override;
+		void regenMana(int32_t manaRegen) override;
+
 		bool isPzLocked() const {
 			return pzLocked;
 		}
