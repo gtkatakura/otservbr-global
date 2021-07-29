@@ -2193,9 +2193,7 @@ class Player final : public Creature, public Cylinder
 
 		bool isPromoted() const;
 
-		uint32_t getAttackSpeed() const {
-			return vocation->getAttackSpeed();
-		}
+		uint32_t getAttackSpeed() const;
 
 		static double_t getPercentLevel(uint64_t count, uint64_t nextLevelCount);
 		double getLostPercent() const;

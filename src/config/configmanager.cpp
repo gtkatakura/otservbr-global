@@ -209,6 +209,7 @@ bool ConfigManager::load()
 	integer[RATE_HEALTH_REGEN] = getGlobalNumber(L, "rateHealthRegen", 1);
 	integer[RATE_MANA_REGEN] = getGlobalNumber(L, "rateManaRegen", 1);
 	integer[RATE_SPELL_COOLDOWN] = getGlobalNumber(L, "rateSpellCooldown", 1);
+	integer[RATE_ATTACK_SPEED] = getGlobalNumber(L, "rateAttackSpeed", 1);
 	integer[HOUSE_PRICE] = getGlobalNumber(L, "housePriceEachSQM", 1000);
 	integer[ACTIONS_DELAY_INTERVAL] = getGlobalNumber(L, "timeBetweenActions", 200);
 	integer[EX_ACTIONS_DELAY_INTERVAL] = getGlobalNumber(L, "timeBetweenExActions", 1000);

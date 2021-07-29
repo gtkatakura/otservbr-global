@@ -4517,6 +4517,10 @@ bool Player::isPromoted() const
 	return promotedVocation == VOCATION_NONE && vocation->getId() != promotedVocation;
 }
 
+uint32_t Player::getAttackSpeed() const {
+	return vocation->getAttackSpeed() / g_config.getNumber(ConfigManager::RATE_ATTACK_SPEED);
+}
+
 double Player::getLostPercent() const
 {
 	int32_t blessingCount = 0;

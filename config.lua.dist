@@ -149,6 +149,7 @@ rateSpawn = 1
 rateHealthRegen = 1
 rateManaRegen = 1
 rateSpellCooldown = 1
+rateAttackSpeed = 1
 
 -- Monster rates
 rateMonsterHealth = 1.0
