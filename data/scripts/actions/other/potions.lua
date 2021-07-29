@@ -22,8 +22,8 @@ antidote:setParameter(COMBAT_PARAM_DISPEL, CONDITION_POISON)
 antidote:setParameter(COMBAT_PARAM_AGGRESSIVE, false)
 antidote:setParameter(COMBAT_PARAM_TARGETCASTERORTOPMOST, true)
 
-local exhaust = Condition(CONDITION_EXHAUST_HEAL)
-exhaust:setParameter(CONDITION_PARAM_TICKS, (configManager.getNumber(configKeys.EX_ACTIONS_DELAY_INTERVAL) - 1000))
+-- local exhaust = Condition(CONDITION_EXHAUST_HEAL)
+-- exhaust:setParameter(CONDITION_PARAM_TICKS, (configManager.getNumber(configKeys.EX_ACTIONS_DELAY_INTERVAL) - 1000))
 -- 1000 - 100 due to exact condition timing. -100 doesn't hurt us, and players don't have reminding ~50ms exhaustion.
 
 local function magicshield(player)
@@ -227,13 +227,13 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	end
 
 	-- Delay potion
-	if not playerDelayPotion[player:getId()] then
-		playerDelayPotion[player:getId()] = 0
-	end
-	if playerDelayPotion[player:getId()] > os.mtime() then
-		player:sendTextMessage(MESSAGE_FAILURE, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
-		return true
-	end
+	-- if not playerDelayPotion[player:getId()] then
+	-- 	playerDelayPotion[player:getId()] = 0
+	-- end
+	-- if playerDelayPotion[player:getId()] > os.mtime() then
+	-- 	player:sendTextMessage(MESSAGE_FAILURE, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
+	-- 	return true
+	-- end
 
 	local potion = potions[item:getId()]
 	if potion.level and player:getLevel() < potion.level or potion.vocations and not table.contains(potion.vocations, player:getVocation():getClientId()) and not (player:getGroup():getId() >= 2) then
@@ -241,10 +241,10 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 		return true
 	end
 
-	if player:getCondition(CONDITION_EXHAUST_HEAL) then
-		player:sendTextMessage(MESSAGE_FAILURE, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
-		return true
-	end
+	-- if player:getCondition(CONDITION_EXHAUST_HEAL) then
+	-- 	player:sendTextMessage(MESSAGE_FAILURE, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
+	-- 	return true
+	-- end
 
 	if potion.health or potion.mana or potion.combat then
 		if potion.health then
@@ -262,13 +262,13 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 		player:addAchievementProgress('Potion Addict', 100000)
 		target:say("Aaaah...", MESSAGE_POTION)
 		player:addItem(potion.flask, 1)
-		player:addCondition(exhaust)
+		-- player:addCondition(exhaust)
 		player:setStorageValue(38412, player:getStorageValue(38412)+1)
 	end
 
 	-- Delay potion
 	playerDelayPotion[player:getId()] = os.mtime() + 500
-	
+
 	if potion.func then
 		potion.func(player)
 		if potion.text then
