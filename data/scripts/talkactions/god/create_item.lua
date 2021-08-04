@@ -26,7 +26,7 @@ function createItem.onSay(player, words, param)
 
 	local count = tonumber(split[2])
 	if count then
-		if itemType:isStackable() then
+		if itemType:isStackable() or itemType:getCharges() then
 			count = math.min(10000, math.max(1, count))
 		elseif not itemType:isFluidContainer() then
 			count = math.min(100, math.max(1, count))
@@ -34,7 +34,9 @@ function createItem.onSay(player, words, param)
 			count = math.max(0, count)
 		end
 	else
-		if not itemType:isFluidContainer() then
+		if itemType:getCharges() then
+			count = itemType:getCharges()
+		elseif not itemType:isFluidContainer() then
 			count = 1
 		else
 			count = 0
