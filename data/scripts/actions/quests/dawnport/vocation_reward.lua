@@ -13,6 +13,7 @@ Rotem, Head of the Adventurers' Guild
 local reward = {
 	container = 1988,
 	commonItems = {
+		{id = 2173, amount = 1},	-- Amulet of loss
 		{id = 18559, amount = 1},	-- Adventurer's stone
 		-- Parchment
 		{id = 1953, amount = 1, text = adventurersGuildText}
@@ -79,7 +80,7 @@ function vocationReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	end
 	for i = 1, #reward.commonItems do
 		rewardsWeight = rewardsWeight + (ItemType(reward.commonItems[i].id):getWeight() * reward.commonItems[i].amount)
-	end	
+	end
 	-- Check if enough weight capacity
 	if player:getFreeCapacity() < rewardsWeight then
 		player:sendTextMessage(
@@ -110,7 +111,7 @@ function vocationReward.onUse(player, item, fromPosition, itemEx, toPosition)
 		else
 			container:addItem(reward.commonItems[i].id, reward.commonItems[i].amount)
 		end
-	end	
+	end
 	-- Add vocation items
 	for i = #vocationItems, 1, -1 do
 		container:addItem(vocationItems[i].id, vocationItems[i].amount)
@@ -120,6 +121,10 @@ function vocationReward.onUse(player, item, fromPosition, itemEx, toPosition)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. container:getName() .. ".")
 		player:setStorageValue(Storage.Quest.Dawnport.VocationReward, 1)
 	end
+
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You received 20k to your bank balance.")
+	player:setBankBalance(20000 + player:getBankBalance())
+
 	return true
 end
 
