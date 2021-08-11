@@ -484,6 +484,10 @@ function Player:conjureItem(reagentId, conjureId, conjureCount, effect)
 		end
 	end
 
+	if conjureCount ~= nil then
+		conjureCount = conjureCount * 5
+	end
+
 	if reagentId ~= 0 and not self:removeItem(reagentId, 1, -1) then
 		self:sendCancelMessage(RETURNVALUE_YOUNEEDAMAGICITEMTOCASTSPELL)
 		self:getPosition():sendMagicEffect(CONST_ME_POFF)

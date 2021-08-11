@@ -38,6 +38,9 @@ local reloadTypes = {
 	["stage"] = RELOAD_TYPE_STAGES,
 	["stages"] = RELOAD_TYPE_STAGES,
 
+	["imbuement"] = RELOAD_TYPE_IMBUEMENTS,
+	["imbuements"] = RELOAD_TYPE_IMBUEMENTS,
+
 	["global"] = RELOAD_TYPE_GLOBAL,
 	["libs"] = RELOAD_TYPE_GLOBAL
 }

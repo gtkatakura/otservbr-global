@@ -47,5 +47,6 @@ RUN sed -i '/mysqlHost = .*$/c\mysqlHost = "mysql"' config.lua \
 
 VOLUME /otbr
 
-ENTRYPOINT ["/bin/otbr"]
-
+# dcrr server sh
+# cd /srv/build
+# cmake -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake .. && make -j`nproc`

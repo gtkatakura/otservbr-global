@@ -2,23 +2,23 @@
 -- NOTE: valid values for worldType are: "pvp", "no-pvp" and "pvp-enforced"
 worldType = "pvp"
 hotkeyAimbotEnabled = true
-protectionLevel = 7
+protectionLevel = 50
 pzLocked = 60 * 1000
 removeChargesFromRunes = true
 removeChargesFromPotions = true
 removeWeaponAmmunition = true
 removeWeaponCharges = true
 timeToDecreaseFrags = 24 * 60 * 60 * 1000
-whiteSkullTime = 15 * 60 * 1000
-stairJumpExhaustion = 2 * 1000
-experienceByKillingPlayers = false
-expFromPlayersLevelRange = 75
-dayKillsToRedSkull = 3
-weekKillsToRedSkull = 5
-monthKillsToRedSkull = 10
-redSkullDuration = 1
-blackSkullDuration = 3
-orangeSkullDuration = 7
+whiteSkullTime = 5 * 60 * 1000
+stairJumpExhaustion = 500
+experienceByKillingPlayers = true
+expFromPlayersLevelRange = 100
+dayKillsToRedSkull = 15
+weekKillsToRedSkull = 25
+monthKillsToRedSkull = 50
+redSkullDuration = 5
+blackSkullDuration = 7
+orangeSkullDuration = 14
 
 onlyInvitedCanMoveHouseItems = true
 cleanProtectionZones = false
@@ -26,14 +26,14 @@ cleanProtectionZones = false
 -- Connection Config
 -- NOTE: maxPlayers set to 0 means no limit
 -- NOTE: MaxPacketsPerSeconds if you change you will be subject to bugs by WPE, keep the default value of 25
-ip = "127.0.0.1"
+ip = "ilaria.servegame.com"
 bindOnlyGlobalAddress = false
 loginProtocolPort = 7171
 gameProtocolPort = 7172
 statusProtocolPort = 7171
 maxPlayers = 0
 motd = "Bem vindo ao OTServBR-Global!"
-onePlayerOnlinePerAccount = true
+onePlayerOnlinePerAccount = false
 allowClones = false
 serverName = "OTServBR-Global"
 statusTimeout = 5 * 1000
@@ -60,19 +60,19 @@ onlyPremiumAccount = false
 -- Customs
 weatherRain = false
 thunderEffect = false
-freeQuests = false
+freeQuests = true
 allConsoleLog = false
--- NOTE: saveIntervalTime in hours
-saveInterval = false
+-- NOTE: saveIntervalTime in minutes
+saveInterval = true
 saveIntervalCleanMap = false
-saveIntervalTime = 1
+saveIntervalTime = 30
 -- Stamina in Trainers
-staminaTrainer = false
-staminaTrainerDelay = 5
+staminaTrainer = true
+staminaTrainerDelay = 1
 staminaTrainerGain = 1
 -- Stamina in PZ
-staminaPz = false
-staminaOrangeDelay = 1
+staminaPz = true
+staminaOrangeDelay = 3
 staminaGreenDelay = 5
 staminaPzGain = 1
 
@@ -85,17 +85,17 @@ deathLosePercent = -1
 -- Houses
 -- NOTE: set housePriceEachSQM to -1 to disable the ingame buy house functionality
 -- Periods: daily/weekly/monthly/yearly/never
-housePriceEachSQM = 1000
-houseRentPeriod = "never"
+housePriceEachSQM = 10000
+houseRentPeriod = "weekly"
 houseOwnedByAccount = false
 
 -- Item Usage
 timeBetweenActions = 200
-timeBetweenExActions = 1000
+timeBetweenExActions = 400
 
 -- Push Delay
-pushDelay = 1000
-pushDistanceDelay = 1500
+pushDelay = 500
+pushDistanceDelay = 750
 
 -- Map
 -- NOTE: set mapName WITHOUT .otbm at the end
@@ -132,15 +132,15 @@ mysqlSock = ""
 
 -- Misc.
 allowChangeOutfit = true
-freePremium = false
+freePremium = true
 kickIdlePlayerAfterMinutes = 15
 maxMessageBuffer = 4
 emoteSpells = false
 classicEquipmentSlots = false
 allowWalkthrough = true
 coinPacketSize = 25
-coinImagesURL = "http://127.0.0.1/images/store/"
-classicAttackSpeed = false
+coinImagesURL = "http://ilaria.servegame.com/images/store/"
+classicAttackSpeed = true
 showScriptsLogInConsole = false
 
 -- Server Save
@@ -149,31 +149,32 @@ serverSaveNotifyMessage = true
 serverSaveNotifyDuration = 5
 serverSaveCleanMap = false
 serverSaveClose = false
-serverSaveShutdown = true
+serverSaveShutdown = false
 
 -- Rates
 -- NOTE: rateExp, rateSkill and rateMagic is used as a fallback only
 -- To configure rates see file data/stages.lua
-rateExp = 1
-rateSkill = 50
-rateLoot = 3
-rateMagic = 25
-rateSpawn = 1
+rateExp = 10
+rateSkill = 10
+rateMagic = 10
+
+rateSpawn = 10
+rateLoot = 10
 
 -- Today regeneration condition over an loop every 1 second,
 -- so values which should regenerated less then 1 second
 -- won't will work
-rateHealthRegen = 1.0
-rateHealthRegenSpeed = 1.0
-rateManaRegen = 1.0
-rateManaRegenSpeed = 1.0
-rateSoulRegen = 1.0
-rateSoulRegenSpeed = 1.0
+rateHealthRegen = 10
+rateHealthRegenSpeed = 12
+rateManaRegen = 10
+rateManaRegenSpeed = 12
+rateSoulRegen = 5
+rateSoulRegenSpeed = 10
 
-rateSpellCooldown = 1.0
-rateAttackSpeed = 1.0
-rateOfflineTrainingSpeed = rateAttackSpeed
-rateExerciseTrainingSpeed = rateAttackSpeed
+rateSpellCooldown = 10
+rateAttackSpeed = 5
+rateOfflineTrainingSpeed = 2
+rateExerciseTrainingSpeed = 20
 
 -- Monster rates
 rateMonsterHealth = 1.0

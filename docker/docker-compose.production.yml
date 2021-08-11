@@ -1,0 +1,78 @@
+version: "3.3"
+
+services:
+  server:
+    build:
+      context: ../
+      dockerfile: docker/server/Dockerfile
+    ports:
+      - 7171:7171
+      - 7172:7172
+    volumes:
+      - ../config.lua:/otbr/config.lua
+      - ../data:/otbr/data
+      - ../src:/srv/src
+    command: /bin/otbr
+    depends_on:
+      # - mysql
+      - website
+      # - login
+    links:
+      - mysql
+
+  # mysql:
+  #   build:
+  #     context: ../
+  #     dockerfile: docker/mysql/Dockerfile
+  #   restart: unless-stopped
+  #   environment:
+  #     - MYSQL_DATABASE=otserver
+  #     - MYSQL_USER=otserver
+  #     - MYSQL_PASSWORD=otserver
+  #     - MYSQL_RANDOM_ROOT_PASSWORD=yes
+  #   ports:
+  #     - 3306:3306
+  #   volumes:
+  #     - db-volume:/var/lib/mysql
+
+  website:
+    image: webdevops/php-nginx:alpine-php7
+    restart: unless-stopped
+    environment:
+      - WEB_DOCUMENT_ROOT=/tmp/web/
+      - WEB_DOCUMENT_INDEX=index.php
+    ports:
+      - 80:80
+    volumes:
+      - ./data/web:/tmp/web
+      - ./:/tmp/otserver/
+      - ../:/tmp/server
+    depends_on:
+      - mysql
+
+  login:
+    image: opentibiabr/login-server:latest
+    restart: unless-stopped
+    ports:
+      - 80:8080
+    depends_on:
+      - mysql
+    environment:
+      - MYSQL_DBNAME=otserver
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_USER=otserver
+      - MYSQL_PASS=otserver
+      - ENV_LOG_LEVEL=debug
+      - LOGIN_IP=login
+      - LOGIN_HTTP_PORT=8080
+      - LOGIN_GRPC_PORT=9090
+      - RATE_LIMITER_BURST=5
+      - RATE_LIMITER_RATE=10
+      - SERVER_IP=127.0.0.1
+      - SERVER_NAME=OTServBR-Global
+      - SERVER_PORT=7172
+      - SERVER_LOCATION=BRA
+
+# volumes:
+#   db-volume:

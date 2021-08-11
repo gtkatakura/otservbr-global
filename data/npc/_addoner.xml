@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Addoner" script="custom/trader.lua" walkinterval="2000" speed="0">
+	<health now="100" max="100" />
+	<look type="146" head="0" body="0" legs="0" feet="0" addons="3" />
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="
+blessed wooden stake, 5942, 5000;
+obsidian knife, 5908, 5000;" />
+	</parameters>
+</npc>

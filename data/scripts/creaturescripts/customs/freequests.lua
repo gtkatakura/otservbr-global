@@ -74,7 +74,7 @@ local questTable = {
 [73] = {storageId = Storage.InServiceofYalahar.QuaraState, storageValue = 1},
 [74] = {storageId = Storage.InServiceofYalahar.QuaraSplasher, storageValue = 1},
 [75] = {storageId = Storage.InServiceofYalahar.QuaraSharptooth, storageValue = 1},
-[76] = {storageId = Storage.InServiceofYalahar.QuaraInky, storageValue = 1},	
+[76] = {storageId = Storage.InServiceofYalahar.QuaraInky, storageValue = 1},
 [77] = {storageId = Storage.CultsOfTibia.Questline, storageValue = 7},
 [78] = {storageId = Storage.CultsOfTibia.Minotaurs.jamesfrancisTask, storageValue = 1},
 [79] = {storageId = Storage.CultsOfTibia.Minotaurs.Mission, storageValue = 1},
@@ -134,7 +134,7 @@ local questTable = {
 [133] = {storageId = Storage.ForgottenKnowledge.LloydKilled, storageValue = 1},
 [134] = {storageId = Storage.ForgottenKnowledge.LadyTenebrisKilled, storageValue = 1},
 [135] = {storageId = Storage.ForgottenKnowledge.AccessMachine, storageValue = 1},
-[136] = {storageId = Storage.BarbarianTest.Questline, storageValue = 1},
+[136] = {storageId = Storage.BarbarianTest.Questline, storageValue = 8},
 [137] = {storageId = Storage.BarbarianTest.Mission01, storageValue = 3},
 [138] = {storageId = Storage.BarbarianTest.Mission02, storageValue = 3},
 [139] = {storageId = Storage.BarbarianTest.Mission03, storageValue = 3},
@@ -314,7 +314,7 @@ local questTable = {
 [313] = {storageId = Storage.DangerousDepths.Scouts.Growth, storageValue = 2},
 [314] = {storageId = Storage.DangerousDepths.Scouts.Diremaw, storageValue = 2},
 [315] = {storageId = Storage.ThreatenedDreams.Start, storageValue = 1},
-[316] = {storageId = Storage.ThreatenedDreams.TroubledMission01, storageValue = 4},
+[316] = {storageId = Storage.ThreatenedDreams.TroubledMission01, storageValue = 17},
 [317] = {storageId = Storage.AdventurersGuild.GreatDragonHunt.WarriorSkeleton, storageValue = 1},
 [318] = {storageId = Storage.AdventurersGuild.GreatDragonHunt.WarriorSkeleton, storageValue = 2},
 [319] = {storageId = Storage.Quest.Dawnport.Questline, storageValue = 1},
@@ -324,10 +324,25 @@ local questTable = {
 [323] = {storageId = Storage.ForgottenKnowledge.AccessEarth, storageValue = 1},
 [324] = {storageId = Storage.ForgottenKnowledge.AccessFire, storageValue = 1},
 [325] = {storageId = Storage.ForgottenKnowledge.AccessIce, storageValue = 1},
-[326] = {storageId = Storage.ForgottenKnowledge.AccessGolden, storageValue = 1}
+[326] = {storageId = Storage.ForgottenKnowledge.AccessGolden, storageValue = 1},
+[327] = {storageId = Storage.FirstDragon.Questline, storageValue = 20},
+[328] = {storageId = Storage.FirstDragon.DragonCounter, storageValue = 200},
+[329] = {storageId = Storage.FirstDragon.ChestCounter, storageValue = 20},
+[330] = {storageId = Storage.FirstDragon.GelidrazahAccess, storageValue = 1},
+[331] = {storageId = Storage.FirstDragon.SecretsCounter, storageValue = 3},
+[332] = {storageId = Storage.PitsOfInferno.ThroneBazir, storageValue = 1},
+[333] = {storageId = Storage.PitsOfInferno.ThronePumin, storageValue = 1},
+[334] = {storageId = Storage.Kilmaresh.First.Title, storageValue = 1},
+[335] = {storageId = 9921, storageValue = 1}, -- werelion enter door
+[336] = {storageId = Storage.KillingInTheNameOf.DemodrasTeleport, storageValue = 1}, -- demodras teleport
+[337] = {storageId = Storage.BigfootBurden.QuestLine, storageValue = 30},
+[338] = {storageId = Storage.BigfootBurden.WarzoneStatus, storageValue = 1},
+[339] = {storageId = Storage.BigfootBurden.Warzone1Access, storageValue = 1},
+[340] = {storageId = Storage.BigfootBurden.Warzone2Access, storageValue = 1},
+[341] = {storageId = Storage.BigfootBurden.Warzone3Access, storageValue = 1},
 }
 
-local upperLimit = 1 -- change upperLimit to a higher one after adding a new quest to questTable
+local upperLimit = 13  -- change upperLimit to a higher one after adding a new quest to questTable
 
 local freeQuests = CreatureEvent("FreeQuests")
 

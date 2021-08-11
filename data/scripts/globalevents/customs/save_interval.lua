@@ -7,7 +7,7 @@ local function serverSave(interval)
     end
 
     saveServer()
-    local message = "Server save complete. Next save in " .. math.floor(interval/3600000) .. " hour(s)!", MESSAGE_STATUS_WARNING
+    local message = "Server save complete. Next save in " .. math.floor(interval/60000) .. " minute(s)!", MESSAGE_STATUS_WARNING
         Webhook.send("Server save", message, WEBHOOK_COLOR_WARNING)
         Game.broadcastMessage(message, MESSAGE_GAME_HIGHLIGHT)
 end
@@ -24,5 +24,5 @@ function save.onTime(interval)
         return not configManager.getBoolean(configKeys.SAVE_INTERVAL)
         end
 
-save:interval(configManager.getNumber(configKeys.SAVE_INTERVAL_TIME) * 60 * 60 * 1000)
+save:interval(configManager.getNumber(configKeys.SAVE_INTERVAL_TIME) * 60 * 1000)
 save:register()

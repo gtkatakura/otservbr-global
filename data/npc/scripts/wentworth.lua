@@ -117,19 +117,19 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, "yes") then
-			if player:getLevel() == 8 then
-				if count[cid] > 1000 or player:getBankBalance() >= 1000 then
-					npcHandler:say("Sorry, but you can't deposit that much.", cid)
-					npcHandler.topic[cid] = 0
-					return false
-				end
-			elseif player:getLevel() > 9 then
-				if count[cid] > 2000 or player:getBankBalance() >= 2000 then
-					npcHandler:say("Sorry, but you can't deposit that much.", cid)
-					npcHandler.topic[cid] = 0
-					return false
-				end
-			end
+			-- if player:getLevel() == 8 then
+			-- 	if count[cid] > 1000 or player:getBankBalance() >= 1000 then
+			-- 		npcHandler:say("Sorry, but you can't deposit that much.", cid)
+			-- 		npcHandler.topic[cid] = 0
+			-- 		return false
+			-- 	end
+			-- elseif player:getLevel() > 9 then
+			-- 	if count[cid] > 2000 or player:getBankBalance() >= 2000 then
+			-- 		npcHandler:say("Sorry, but you can't deposit that much.", cid)
+			-- 		npcHandler.topic[cid] = 0
+			-- 		return false
+			-- 	end
+			-- end
 			if player:depositMoney(count[cid]) then
 				npcHandler:say("Alright, we have added the amount of " .. count[cid] .. " gold to your {balance}. \z
 				You can {withdraw} your money anytime you want to.", cid)

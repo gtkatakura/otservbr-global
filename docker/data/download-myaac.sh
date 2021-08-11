@@ -6,8 +6,11 @@ unzip -o myaac.zip -d .
 mv myaac-master/* ./web
 rm myaac.zip myaac-master -rf
 
-wget https://github.com/opentibiabr/myaac-tibia12-login/archive/master.zip -O myaac-otbr-plugin.zip
-unzip -o myaac-otbr-plugin.zip -d .
+wget https://github.com/opentibiabr/myaac-tibia12-login/releases/download/2.0/myaac-tibia12-login-v2.0.zip -O myaac-otbr-plugin.zip
 
-cp -r myaac-tibia12-login-master/* ./web
-rm -rf myaac-otbr-plugin.zip myaac-tibia12-login-master
+unzip -o myaac-otbr-plugin.zip -d web
+
+# cp -r myaac-tibia12-login-master/* ./web
+# rm -rf myaac-otbr-plugin.zip myaac-tibia12-login-master
+
+# https://otland.net/threads/myaac-v0-8-6.268654/

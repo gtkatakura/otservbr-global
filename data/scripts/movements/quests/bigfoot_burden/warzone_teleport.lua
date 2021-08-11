@@ -17,27 +17,27 @@ function warzoneTeleport.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getStorageValue(Storage.BigfootBurden.QuestLine) < 30 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are not permitted to enter.")
-		player:teleportTo(fromPosition)
-		position:sendMagicEffect(CONST_ME_TELEPORT)
-		return true
-	end
+	-- if player:getStorageValue(Storage.BigfootBurden.QuestLine) < 30 then
+	-- 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are not permitted to enter.")
+	-- 	player:teleportTo(fromPosition)
+	-- 	position:sendMagicEffect(CONST_ME_TELEPORT)
+	-- 	return true
+	-- end
 
-	if player:getStorageValue(Storage.BigfootBurden.WarzoneStatus) < 1 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You finally have enough renown among the gnomes, \z
-		ask Gnomission for a mission to fight on the warzones.")
-		player:teleportTo(fromPosition)
-		position:sendMagicEffect(CONST_ME_TELEPORT)
-		return true
-	end
+	-- if player:getStorageValue(Storage.BigfootBurden.WarzoneStatus) < 1 then
+	-- 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You finally have enough renown among the gnomes, \z
+	-- 	ask Gnomission for a mission to fight on the warzones.")
+	-- 	player:teleportTo(fromPosition)
+	-- 	position:sendMagicEffect(CONST_ME_TELEPORT)
+	-- 	return true
+	-- end
 
-	if player:getStorageValue(destination.storage) < 1 and not player:removeItem(18509, 1) then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need a mission crystal or a job done with Gnomission to enter.")
-		player:teleportTo(fromPosition)
-		position:sendMagicEffect(CONST_ME_TELEPORT)
-		return true
-	end
+	-- if player:getStorageValue(destination.storage) < 1 and not player:removeItem(18509, 1) then
+	-- 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need a mission crystal or a job done with Gnomission to enter.")
+	-- 	player:teleportTo(fromPosition)
+	-- 	position:sendMagicEffect(CONST_ME_TELEPORT)
+	-- 	return true
+	-- end
 
 	player:teleportTo(destination.teleportPosition)
 	destination.teleportPosition:sendMagicEffect(CONST_ME_TELEPORT)

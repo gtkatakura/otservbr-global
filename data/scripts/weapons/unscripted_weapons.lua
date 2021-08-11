@@ -4082,7 +4082,7 @@ local weapons = {
 	{
 		itemId = 2389,
 		type = WEAPON_DISTANCE,
-		breakChance = 3
+		breakChance = 0 -- normal = 3, mudada para 0 para usar em treinamento
 	}, -- spear
 	{
 		itemId = 2388,
@@ -4311,7 +4311,11 @@ for index, weaponTable in ipairs(weapons) do
 		weapon:wieldUnproperly(weaponTable.unproperly)
 	end
 	if(weaponTable.damage) then
-		weapon:damage(weaponTable.damage[1], weaponTable.damage[2])
+		if weaponTable.type == WEAPON_WAND then
+			weapon:damage(weaponTable.damage[1] * 3, weaponTable.damage[2] * 3)
+		else
+			weapon:damage(weaponTable.damage[1], weaponTable.damage[2])
+		end
 	end
 	if(weaponTable.wandType) then
 		weapon:element(weaponTable.wandType)

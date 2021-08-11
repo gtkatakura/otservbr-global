@@ -105,7 +105,7 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 17) then
 				if item.itemid == index then
 					player:teleportTo(value.destination)
-					player:getPosition():sendMagicEffect(value.effect)	
+					player:getPosition():sendMagicEffect(value.effect)
 					item:remove(1)
 					return true
 				else

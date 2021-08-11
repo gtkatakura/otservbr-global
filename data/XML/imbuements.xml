@@ -136,18 +136,18 @@
 	<!-- Mana Leech Imbuement -->
 	<imbuement name="Void" base="1" category="2" iconid="49">
 		<attribute key="description" value="Converts 3% of damage to MP with a chance of 100%." />
-		<attribute key="effect" type="skill" value="manaleech" bonus="3" chance="100" />
+		<attribute key="effect" type="skill" value="manaleech" bonus="6" chance="100" />
 		<attribute key="item" value="12448" count="25" />
 	</imbuement>
 	<imbuement name="Void" base="2" category="2" iconid="49">
 		<attribute key="description" value="Converts 5% of damage to MP with a chance of 100%." />
-		<attribute key="effect" type="skill" value="manaleech" bonus="5" chance="100" />
+		<attribute key="effect" type="skill" value="manaleech" bonus="10" chance="100" />
 		<attribute key="item" value="12448" count="25" />
 		<attribute key="item" value="22534" count="25" />
 	</imbuement>
 	<imbuement name="Void" base="3" category="2" iconid="49">
 		<attribute key="description" value="Converts 8% of damage to MP with a chance of 100%." />
-		<attribute key="effect" type="skill" value="manaleech" bonus="8" chance="100" />
+		<attribute key="effect" type="skill" value="manaleech" bonus="16" chance="100" />
 		<attribute key="item" value="12448" count="25" />
 		<attribute key="item" value="22534" count="25" />
 		<attribute key="item" value="25386" count="5" />

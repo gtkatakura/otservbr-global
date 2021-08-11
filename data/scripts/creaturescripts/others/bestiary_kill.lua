@@ -8,6 +8,10 @@ function bestiaryOnKill.onKill(player, creature, lastHit)
 		local participant = Player(cid)
 		if participant and participant:isPlayer() then
 			participant:addBestiaryKill(creature:getName())
+			participant:addBestiaryKill(creature:getName())
+			participant:addBestiaryKill(creature:getName())
+			participant:addBestiaryKill(creature:getName())
+			participant:addBestiaryKill(creature:getName())
 		end
 	  end
 

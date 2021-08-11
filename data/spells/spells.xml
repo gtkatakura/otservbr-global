@@ -17,7 +17,7 @@
 		<vocation name="Druid"/>
 		<vocation name="Elder Druid"/>
 	</instant>
-	
+
 	<instant group="healing" spellid="170" name="Bruise Bane" words="exura infir ico" lvl="1" mana="10" aggressive="0" selftarget="1" exhaustion="1000" groupcooldown="1000" needlearn="0" prem="0" script="healing/bruise_bane.lua">
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
@@ -46,7 +46,7 @@
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
 	</instant>
-	
+
 	<instant group="support" spellid="92" name="Conjure Wand of Darkness" words="exevo gran mort" lvl="41" mana="250" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="1800000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Wand_of_Darkness.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
@@ -173,7 +173,7 @@
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
 	</instant>
-	<instant group="attack" spellid="105" name="Fierce Berserk" words="exori gran" lvl="90" mana="340" prem="1" needweapon="1" exhaustion="6000" groupcooldown="2000" needlearn="0" script="attack/fierce berserk.lua">
+	<instant group="attack" spellid="105" name="Fierce Berserk" words="exori gran" lvl="90" mana="340" prem="1" needweapon="1" exhaustion="2000" groupcooldown="2000" needlearn="0" script="attack/fierce berserk.lua">
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
 	</instant>
@@ -802,6 +802,38 @@
 	<instant group="support" name="Holy Missile" words="adori san" lvl="27" mana="300" soul="3" prem="1" cooldown="2000" groupcooldown="2000" needlearn="0" script="conjuring/holy_missile_rune.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
+	</instant>
+
+	<!-- Custom Spells -->
+	<instant group="support" secondarygroup="focus" name="Mage Focus" words="utito magic" lvl="60" mana="290" prem="1" aggressive="0" selftarget="1" exhaustion="2000" groupcooldown="2000" secondarygroupcooldown="2000" needlearn="0" script="support/custom/utito magic.lua">
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" />
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" />
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" />
+	</instant>
+
+	<instant group="attack" name="Strong Divine Area" words="exori mas san" lvl="50" mana="160" prem="1" range="7" casterTargetOrDirection="1" blockwalls="1" exhaustion="2000" groupcooldown="2000" needlearn="0" script="attack/custom/exori mas san.lua">
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" />
+	</instant>
+
+	<instant group="attack" name="Strong Avalanche" words="exori mas frigo" lvl="30" mana="265" prem="1" range="7" casterTargetOrDirection="1" blockwalls="1" exhaustion="2000" groupcooldown="2000" needlearn="0" script="attack/custom/exori mas frigo.lua">
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" />
+	</instant>
+
+	<instant group="attack" name="Strong Great Fireball" words="exori mas flam" lvl="30" mana="265" prem="1" range="7" casterTargetOrDirection="1" blockwalls="1" exhaustion="2000" groupcooldown="2000" needlearn="0" script="attack/custom/exori mas flam.lua">
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" />
+	</instant>
+
+	<instant group="attack" name="Strong Death Area" words="exori mas mort" lvl="30" mana="265" prem="1" range="7" casterTargetOrDirection="1" blockwalls="1" exhaustion="2000" groupcooldown="2000" needlearn="0" script="attack/custom/exori mas mort.lua">
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" />
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" />
 	</instant>
 
 	<!-- House Spells -->

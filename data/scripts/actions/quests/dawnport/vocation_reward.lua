@@ -122,8 +122,8 @@ function vocationReward.onUse(player, item, fromPosition, itemEx, toPosition)
 		player:setStorageValue(Storage.Quest.Dawnport.VocationReward, 1)
 	end
 
-	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You received 20k to your bank balance.")
-	player:setBankBalance(20000 + player:getBankBalance())
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You received 200k to your bank balance.")
+	player:setBankBalance(200000 + player:getBankBalance())
 
 	return true
 end

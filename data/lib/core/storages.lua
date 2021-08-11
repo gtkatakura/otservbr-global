@@ -137,6 +137,9 @@ Storage = {
 	PetSummonEvent10 = 30054,
 	PetSummonEvent60 = 30055,
 	FreeQuests = 990000,
+	Vocation = {
+		CapacityGain = 990001
+	},
 	PremiumAccount = 998899,
 
 	--[[
@@ -1709,7 +1712,7 @@ Storage = {
 		HyenaSign = 52299,
 		Time = 52300
 	},
-	
+
 	GraveDanger = {
 		-- Reserved storage from 52310 - 52339
 		Questline = 52310,
