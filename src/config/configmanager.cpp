@@ -32,83 +32,92 @@
 
 extern Game g_game;
 
-namespace {
-
-std::string getGlobalString(lua_State* L, const char* identifier, const char* defaultValue)
+namespace
 {
-	lua_getglobal(L, identifier);
-	if (!lua_isstring(L, -1)) {
-		return defaultValue;
-	}
 
-	size_t len = lua_strlen(L, -1);
-	std::string ret(lua_tostring(L, -1), len);
-	lua_pop(L, 1);
-	return ret;
-}
-
-int32_t getGlobalNumber(lua_State* L, const char* identifier, const int32_t defaultValue = 0)
-{
-	lua_getglobal(L, identifier);
-	if (!lua_isnumber(L, -1)) {
-		return defaultValue;
-	}
-
-	int32_t val = lua_tonumber(L, -1);
-	lua_pop(L, 1);
-	return val;
-}
-
-bool getGlobalBoolean(lua_State* L, const char* identifier, const bool defaultValue)
-{
-	lua_getglobal(L, identifier);
-	if (!lua_isboolean(L, -1)) {
-		if (!lua_isstring(L, -1)) {
+	std::string getGlobalString(lua_State *L, const char *identifier, const char *defaultValue)
+	{
+		lua_getglobal(L, identifier);
+		if (!lua_isstring(L, -1))
+		{
 			return defaultValue;
 		}
 
 		size_t len = lua_strlen(L, -1);
 		std::string ret(lua_tostring(L, -1), len);
 		lua_pop(L, 1);
-		return booleanString(ret);
+		return ret;
 	}
 
-	int val = lua_toboolean(L, -1);
-	lua_pop(L, 1);
-	return val != 0;
-}
+	int32_t getGlobalNumber(lua_State *L, const char *identifier, const int32_t defaultValue = 0)
+	{
+		lua_getglobal(L, identifier);
+		if (!lua_isnumber(L, -1))
+		{
+			return defaultValue;
+		}
 
-float getGlobalFloat(lua_State* L, const char* identifier, const float defaultValue = 0.0)
-{
-	lua_getglobal(L, identifier);
-	if (!lua_isnumber(L, -1)) {
-		return defaultValue;
+		int32_t val = lua_tonumber(L, -1);
+		lua_pop(L, 1);
+		return val;
 	}
 
-	float val = lua_tonumber(L, -1);
-	lua_pop(L, 1);
-	return val;
-}
+	bool getGlobalBoolean(lua_State *L, const char *identifier, const bool defaultValue)
+	{
+		lua_getglobal(L, identifier);
+		if (!lua_isboolean(L, -1))
+		{
+			if (!lua_isstring(L, -1))
+			{
+				return defaultValue;
+			}
+
+			size_t len = lua_strlen(L, -1);
+			std::string ret(lua_tostring(L, -1), len);
+			lua_pop(L, 1);
+			return booleanString(ret);
+		}
+
+		int val = lua_toboolean(L, -1);
+		lua_pop(L, 1);
+		return val != 0;
+	}
+
+	float getGlobalFloat(lua_State *L, const char *identifier, const float defaultValue = 0.0)
+	{
+		lua_getglobal(L, identifier);
+		if (!lua_isnumber(L, -1))
+		{
+			return defaultValue;
+		}
+
+		float val = lua_tonumber(L, -1);
+		lua_pop(L, 1);
+		return val;
+	}
 
 }
 
 bool ConfigManager::load()
 {
-	lua_State* L = luaL_newstate();
-	if (!L) {
+	lua_State *L = luaL_newstate();
+	if (!L)
+	{
 		throw std::runtime_error("Failed to allocate memory");
 	}
 
 	luaL_openlibs(L);
 
-	if (luaL_dofile(L, configFileLua.c_str())) {
+	if (luaL_dofile(L, configFileLua.c_str()))
+	{
 		SPDLOG_ERROR("[ConfigManager::load] - {}", lua_tostring(L, -1));
 		lua_close(L);
 		return false;
 	}
 
 	//parse config
-	if (!loaded) { //info that must be loaded one time (unless we reset the modules involved)
+	if (!loaded)
+	{ //info that must be loaded one time (unless we reset the modules involved)
 		boolean[BIND_ONLY_GLOBAL_ADDRESS] = getGlobalBoolean(L, "bindOnlyGlobalAddress", false);
 		boolean[OPTIMIZE_DATABASE] = getGlobalBoolean(L, "startupDatabaseOptimization", true);
 
@@ -179,6 +188,8 @@ bool ConfigManager::load()
 
 	boolean[ALL_CONSOLE_LOG] = getGlobalBoolean(L, "allConsoleLog", false);
 
+	boolean[SORT_LOOT_BY_CHANCE] = getGlobalBoolean(L, "sortLootByChance", false);
+
 	boolean[FREE_QUESTS] = getGlobalBoolean(L, "freeQuests", false);
 
 	boolean[ONLY_PREMIUM_ACCOUNT] = getGlobalBoolean(L, "onlyPremiumAccount", false);
@@ -192,7 +203,7 @@ bool ConfigManager::load()
 	string[MOTD] = getGlobalString(L, "motd", "");
 	string[WORLD_TYPE] = getGlobalString(L, "worldType", "pvp");
 	string[STORE_IMAGES_URL] = getGlobalString(L, "coinImagesURL", "");
-  string[DISCORD_WEBHOOK_URL] = getGlobalString(L, "discordWebhookURL", "");
+	string[DISCORD_WEBHOOK_URL] = getGlobalString(L, "discordWebhookURL", "");
 
 	integer[MAX_PLAYERS] = getGlobalNumber(L, "maxPlayers");
 	integer[PZ_LOCKED] = getGlobalNumber(L, "pzLocked", 60000);
@@ -250,7 +261,8 @@ bool ConfigManager::load()
 bool ConfigManager::reload()
 {
 	bool result = load();
-	if (transformToSHA1(getString(MOTD)) != g_game.getMotdHash()) {
+	if (transformToSHA1(getString(MOTD)) != g_game.getMotdHash())
+	{
 		g_game.incrementMotdNum();
 	}
 	return result;
@@ -258,9 +270,10 @@ bool ConfigManager::reload()
 
 static std::string dummyStr;
 
-const std::string& ConfigManager::getString(stringConfig_t what) const
+const std::string &ConfigManager::getString(stringConfig_t what) const
 {
-	if (what >= LAST_STRING_CONFIG) {
+	if (what >= LAST_STRING_CONFIG)
+	{
 		SPDLOG_WARN("[ConfigManager::getString] - Accessing invalid index: {}", what);
 		return dummyStr;
 	}
@@ -269,7 +282,8 @@ const std::string& ConfigManager::getString(stringConfig_t what) const
 
 int32_t ConfigManager::getNumber(integerConfig_t what) const
 {
-	if (what >= LAST_INTEGER_CONFIG) {
+	if (what >= LAST_INTEGER_CONFIG)
+	{
 		SPDLOG_WARN("[ConfigManager::getNumber] - Accessing invalid index: {}", what);
 		return 0;
 	}
@@ -278,7 +292,8 @@ int32_t ConfigManager::getNumber(integerConfig_t what) const
 
 int16_t ConfigManager::getShortNumber(integerConfig_t what) const
 {
-	if (what >= LAST_INTEGER_CONFIG) {
+	if (what >= LAST_INTEGER_CONFIG)
+	{
 		SPDLOG_WARN("[ConfigManager::getShortNumber] - Accessing invalid index: {}", what);
 		return 0;
 	}
@@ -287,7 +302,8 @@ int16_t ConfigManager::getShortNumber(integerConfig_t what) const
 
 bool ConfigManager::getBoolean(booleanConfig_t what) const
 {
-	if (what >= LAST_BOOLEAN_CONFIG) {
+	if (what >= LAST_BOOLEAN_CONFIG)
+	{
 		SPDLOG_WARN("[ConfigManager::getBoolean] - Accessing invalid index: {}", what);
 		return false;
 	}
@@ -296,7 +312,8 @@ bool ConfigManager::getBoolean(booleanConfig_t what) const
 
 float ConfigManager::getFloat(floatingConfig_t what) const
 {
-	if (what >= LAST_FLOATING_CONFIG) {
+	if (what >= LAST_FLOATING_CONFIG)
+	{
 		SPDLOG_WARN("[ConfigManager::getFLoat] - Accessing invalid index: {}", what);
 		return 0;
 	}

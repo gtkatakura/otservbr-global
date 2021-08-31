@@ -60,6 +60,8 @@ enum booleanConfig_t {
 	MAP_CUSTOM_ENABLED,
 	ALL_CONSOLE_LOG,
 
+	SORT_LOOT_BY_CHANCE,
+
 	LAST_BOOLEAN_CONFIG
 	};
 
