@@ -280,3 +280,35 @@ LevelDoorTable = {
 	{ closedDoor = 34675, openDoor = 34677 },
 	{ closedDoor = 34676, openDoor = 34678 },
 }
+
+
+-- Bypass quests doors
+-- Map all tiles near quest door.
+-- By: Karin
+
+BypassDoorTable = {
+	-- Drume
+	{
+		{ x = 32429,  y = 32461, z = 7, }, 
+		{ x = 32430,  y = 32460, z = 7, }, 
+		{ x = 32430,  y = 32461, z = 7, }, 
+		{ x = 32430,  y = 32462, z = 7, }, 
+		{ x = 32428,  y = 32460, z = 7, }, 
+		{ x = 32428,  y = 32461, z = 7, }, 
+		{ x = 32428,  y = 32462, z = 7, },
+	}
+}
+
+function bypassDoor(player)
+	local pos = player:getPosition()
+	for i, quest in ipairs(BypassDoorTable) do
+		for index, door in ipairs(quest) do
+			if door.x == pos.x and door.y == pos.y and door.z == pos.z then
+				return true
+			end
+		end
+	end
+	return false
+end
+
+

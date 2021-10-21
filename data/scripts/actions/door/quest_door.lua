@@ -13,7 +13,7 @@ local questDoor = Action()
 function questDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	for index, value in ipairs(QuestDoorTable) do
 		if value.closedDoor == item.itemid then
-			if item.actionid > 0 and player:getStorageValue(item.actionid) ~= -1 then
+			if (item.actionid > 0 and player:getStorageValue(item.actionid) ~= -1) or bypassDoor(player) then
 				item:transform(value.openDoor)
 				player:teleportTo(toPosition, true)
 				return true
