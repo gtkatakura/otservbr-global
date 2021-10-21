@@ -1,6 +1,6 @@
 local destination = {
-	[4121] = {position = Position(32801, 31766, 9), storageValue = 1, needCrystal = true},
-	[3220] = {position = Position(32627, 31864, 11), storageValue = 1, needCrystal = true},
+	[4121] = {position = Position(32801, 31766, 9), storageValue = 1, needCrystal = false},
+	[3220] = {position = Position(32627, 31864, 11), storageValue = 1, needCrystal = false},
 	[3128] = {position = Position(33000, 31870, 13), storageValue = 1},
 	[3129] = {position = Position(32795, 31762, 10), storageValue = 1},
 	[3130] = {position = Position(32864, 31844, 11), storageValue = 1},
@@ -11,11 +11,11 @@ local destination = {
 	[3135] = {position = Position(33001, 31915, 9), storageValue = 27}, -- back from golems
 	[3136] = {position = Position(32904, 31894, 13), storageValue = 27}, -- vulcongras
 	[3137] = {position = Position(32979, 31907, 9), storageValue = 27}, -- back from vulcongras
-	[3215] = {position = Position(32329, 32172, 9), storageValue = 1, needCrystal = true},
-	[3216] = {position = Position(32195, 31182, 8), storageValue = 1, needCrystal = true},
-	[3217] = {position = Position(32402, 32816, 6), storageValue = 1, needCrystal = true},
-	[3218] = {position = Position(33153, 31833, 10), storageValue = 1, needCrystal = true},
-	[3219] = {position = Position(33186, 32385, 8), storageValue = 1, needCrystal = true},
+	[3215] = {position = Position(32329, 32172, 9), storageValue = 1, needCrystal = false},
+	[3216] = {position = Position(32195, 31182, 8), storageValue = 1, needCrystal = false},
+	[3217] = {position = Position(32402, 32816, 6), storageValue = 1, needCrystal = false},
+	[3218] = {position = Position(33153, 31833, 10), storageValue = 1, needCrystal = false},
+	[3219] = {position = Position(33186, 32385, 8), storageValue = 1, needCrystal = false},
 	[3222] = {position = Position(32771, 31800, 10), storageValue = 11, needCrystal = false},
 	[3221] = {position = Position(32790, 31795, 10), storageValue = 11, needCrystal = false}
 }
