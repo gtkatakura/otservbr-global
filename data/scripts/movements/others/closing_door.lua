@@ -14,6 +14,7 @@ for index, value in ipairs(LevelDoorTable) do
     end
 end
 
+
 function closingDoor.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
@@ -22,7 +23,7 @@ function closingDoor.onStepIn(creature, item, position, fromPosition)
 
     for index, value in ipairs(QuestDoorTable) do
 		 if value.openDoor == item.itemid then
-			if player:getStorageValue(item.actionid) ~= -1 then
+			if player:getStorageValue(item.actionid) ~= -1 or bypassDoor(player) then
 				return true
 			else
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")

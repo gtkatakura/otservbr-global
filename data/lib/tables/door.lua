@@ -280,3 +280,70 @@ LevelDoorTable = {
 	{ closedDoor = 34675, openDoor = 34677 },
 	{ closedDoor = 34676, openDoor = 34678 },
 }
+
+
+-- Bypass quests doors
+-- Map all tiles near quest door.
+-- By: Karin
+
+BypassDoorTable = {
+	-- Drume
+	{
+		-- First door
+		{ x = 32429,  y = 32461, z = 7, }, 
+		{ x = 32430,  y = 32460, z = 7, }, 
+		{ x = 32430,  y = 32461, z = 7, }, 
+		{ x = 32430,  y = 32462, z = 7, }, 
+		{ x = 32428,  y = 32460, z = 7, }, 
+		{ x = 32428,  y = 32461, z = 7, }, 
+		{ x = 32428,  y = 32462, z = 7, },
+		
+		-- Second door
+		{ x = 32431,  y = 32460, z = 8, }, 
+		{ x = 32431,  y = 32461, z = 8, }, 
+		{ x = 32431,  y = 32462, z = 8, }, 
+		{ x = 32430,  y = 32461, z = 8, }, 
+		{ x = 32429,  y = 32460, z = 8, }, 
+		{ x = 32429,  y = 32461, z = 8, }, 
+		{ x = 32429,  y = 32462, z = 8, }, 
+		
+	},
+
+	-- Carnivor
+	{
+		{ x = 32761,  y = 32630, z = 7, }, 
+
+		{ x = 32760,  y = 32629, z = 7, }, 
+		{ x = 32761,  y = 32629, z = 7, }, 
+		{ x = 32760,  y = 32631, z = 7, }, 
+		{ x = 32761,  y = 32631, z = 7, }, 
+		{ x = 32762,  y = 32631, z = 7, }, 
+	},
+	-- Gazer Spectre - Port hope
+	{
+		{ x = 32671,  y = 32652, z = 7, }, 
+
+		{ x = 32670,  y = 32651, z = 7, }, 
+		{ x = 32670,  y = 32652, z = 7, }, 
+		{ x = 32670,  y = 32653, z = 7, }, 
+		{ x = 32672,  y = 32651, z = 7, }, 
+		{ x = 32672,  y = 32652, z = 7, }, 
+		{ x = 32672,  y = 32653, z = 7, }, 
+	},
+
+
+}
+
+function bypassDoor(player)
+	local pos = player:getPosition()
+	for i, quest in ipairs(BypassDoorTable) do
+		for index, door in ipairs(quest) do
+			if door.x == pos.x and door.y == pos.y and door.z == pos.z then
+				return true
+			end
+		end
+	end
+	return false
+end
+
+
